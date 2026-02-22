@@ -1,38 +1,24 @@
-/*!
-    * Start Bootstrap - Resume v6.0.2 (https://startbootstrap.com/theme/resume)
-    * Copyright 2013-2020 Start Bootstrap
-    * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
-    */
-    (function ($) {
-    "use strict"; // Start of use strict
+window.addEventListener("DOMContentLoaded", (event) => {
+    // Initialize Bootstrap ScrollSpy on the side navigation element
+    const sideNav = document.body.querySelector("#sideNav");
+    if (sideNav) {
+        new bootstrap.ScrollSpy(document.body, {
+            target: "#sideNav",
+            rootMargin: "0px 0px -40%",
+        });
+    }
 
-    // Smooth scrolling using jQuery easing
-    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
-        if (
-            location.pathname.replace(/^\//, "") ===
-                this.pathname.replace(/^\//, "") &&
-            location.hostname === this.hostname
-        ) {
-            let target = $(this.hash);
-            target = target.length
-                ? target
-                : $("[name=" + this.hash.slice(1) + "]");
-            if (target.length) {
-                $("html, body").animate({
-                    scrollTop: target.offset().top,
-                }, 1000, "easeInOutExpo");
-                return false;
+    // Collapse the responsive navbar when a navigation link is clicked in mobile view
+    const navbarToggler = document.body.querySelector(".navbar-toggler");
+    const responsiveNavItems = [].slice.call(
+        document.querySelectorAll("#navbarSupportedContent .nav-link")
+    );
+    responsiveNavItems.map(function (responsiveNavItem) {
+        responsiveNavItem.addEventListener("click", () => {
+            // Only trigger the toggler if it's currently visible (mobile view)
+            if (window.getComputedStyle(navbarToggler).display !== "none") {
+                navbarToggler.click();
             }
-        }
+        });
     });
-
-    // Closes a responsive menu when a scroll trigger link is clicked
-    $(".js-scroll-trigger").click(function () {
-        $(".navbar-collapse").collapse("hide");
-    });
-
-    // Activate scrollspy to add active class to navbar items on scroll
-    $("body").scrollspy({
-        target: "#sideNav",
-    });
-})(jQuery); // End of use strict
+});
