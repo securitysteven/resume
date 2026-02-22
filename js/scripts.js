@@ -1,13 +1,4 @@
-window.addEventListener("DOMContentLoaded", (event) => {
-    // Initialize Bootstrap ScrollSpy on the side navigation element
-    const sideNav = document.body.querySelector("#sideNav");
-    if (sideNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: "#sideNav",
-            rootMargin: "0px 0px -40%",
-        });
-    }
-
+window.addEventListener("DOMContentLoaded", () => {
     // Collapse the responsive navbar when a navigation link is clicked in mobile view
     const navbarToggler = document.body.querySelector(".navbar-toggler");
     const responsiveNavItems = [].slice.call(
