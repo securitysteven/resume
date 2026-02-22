@@ -320,12 +320,17 @@ hr {
     flex-direction: column;
     width: 17rem;
     height: 100vh;
+    overflow-y: auto;
+    box-sizing: border-box;
   }
 
   #sideNav .navbar-brand {
     display: flex;
     margin: auto auto 0;
     padding: 0.5rem;
+    flex-shrink: 0;
+    justify-content: center;
+    width: 100%;
   }
 
   #sideNav .navbar-brand .img-profile {
@@ -338,14 +343,18 @@ hr {
     display: flex;
     align-items: flex-start;
     flex-grow: 0;
+    flex-shrink: 0;
     width: 100%;
     flex-basis: auto;
     margin-bottom: auto;
+    justify-content: center;
   }
 
   #sideNav .navbar-collapse .navbar-nav {
     flex-direction: column;
     width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   #sideNav .navbar-collapse .navbar-nav .nav-item {
